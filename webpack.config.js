@@ -38,13 +38,33 @@ module.exports = (env, argv) => {
                     sourceMap: true,
                   },
                 },
-                "sass-loader",
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    sourceMap: true,
+                    config: {
+                      path: 'postcss.config.js'
+                    }
+                  }
+                },
+                {
+                  loader: 'sass-loader', options: { sourceMap: true }
+                }
               ],
             },
             {
               use: [
                 isDevelopment ? "style-loader" : MiniCssExtractPlugin.loader,
                 "css-loader",
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    sourceMap: true,
+                    config: {
+                      path: 'postcss.config.js'
+                    }
+                  }
+                },
                 "sass-loader",
               ],
             },
@@ -56,8 +76,8 @@ module.exports = (env, argv) => {
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional
-        filename: isDevelopment ? "[name].css" : "[name].[hash].css",
-        chunkFilename: isDevelopment ? "[id].css" : "[id].[hash].css",
+        filename: "[name].css",
+        chunkFilename: "[id].css",
       }),
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({

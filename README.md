@@ -1,2 +1,2 @@
-# webpack_react_template
- webpack react template
+# ie_webpack
+testing webpack with internet explorer

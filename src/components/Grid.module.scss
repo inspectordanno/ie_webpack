@@ -1,0 +1,24 @@
+.grid {
+    display: grid;
+    grid-template-columns: 50px 50px;
+    grid-template-areas: 
+    "square4 square3"
+    "square2 square1";
+    column-gap: 5px;
+}
+
+.square1 {
+    grid-area: square1;
+}
+
+.square2 {
+    grid-area: square2;
+}
+
+.square3 {
+    grid-area: square3;
+}
+
+.square4 {
+    grid-area: square4;
+}
